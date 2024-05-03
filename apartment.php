@@ -15,19 +15,19 @@ $result = $connect->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Apartments</title>
     <style>
-        .apartment {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
+    .apartment {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
 
-        .apartment h3 {
-            margin-top: 0;
-        }
+    .apartment h3 {
+        margin-top: 0;
+    }
 
-        .apartment p {
-            margin: 5px 0;
-        }
+    .apartment p {
+        margin: 5px 0;
+    }
     </style>
 </head>
 
