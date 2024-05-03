@@ -40,11 +40,26 @@
 
         <label for="profile_image">Profile Image:</label>
         <input type="file" id="profile_image" name="profile_image"><br><br>
+        <img id="imagePreview" src="" alt="" style="max-width: 200px; max-height: 200px;">
 
         <button type="submit">Sign Up</button><br><br>
     </form>
 
 </body>
+<script>
+    document.getElementById('profile_image').addEventListener('change', function (event) {
+        var input = event.target;
+        var reader = new FileReader();
+
+        reader.onload = function () {
+            var imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = reader.result;
+            imagePreview.style.display = 'block';
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    });
+</script>
 
 </html>
 <?php

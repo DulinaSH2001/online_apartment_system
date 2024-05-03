@@ -27,9 +27,10 @@
 
             <div class="form-button">
                 <input type="submit" value="Login">
+                <a href="signup.php" class="signup-button">Sign Up</a>
             </div>
+
         </form>
-    </div>
 </body>
 
 </html>
