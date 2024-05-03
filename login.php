@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>window.location.href = 'seller_dashboard.php';</script>";
             exit;
         } else {
-            echo "<script>window.location.href = 'home.php';</script>";
+            echo "<script>window.location.href = 'user_profile.php';</script>";
             exit;
         }
     } else {
