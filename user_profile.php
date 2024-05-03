@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-session_start();
+include 'header.php';
 $u = $_SESSION['user'];
 
 // Fetch user data from the database
@@ -77,11 +77,11 @@ if ($result->num_rows > 0) {
             <label for="profile_image">Profile Picture:</label>
             <input type="file" id="profile_image" name="profile_image" accept="image/*">
             <?php if (isset($user['profile_image']) && !empty($user['profile_image'])): ?>
-            <img id="imagePreview" src="profile_img/<?php echo $user['profile_image']; ?>" alt="Profile Image"
-                style="max-width: 200px; max-height: 200px;">
+                <img id="imagePreview" src="profile_img/<?php echo $user['profile_image']; ?>" alt="Profile Image"
+                    style="max-width: 200px; max-height: 200px;">
             <?php else: ?>
-            <img id="imagePreview" src="" alt="Profile Image"
-                style="max-width: 200px; max-height: 200px; display: none;">
+                <img id="imagePreview" src="" alt="Profile Image"
+                    style="max-width: 200px; max-height: 200px; display: none;">
             <?php endif; ?>
         </div>
 
@@ -94,18 +94,18 @@ if ($result->num_rows > 0) {
 
 </body>
 <script>
-document.getElementById('profile_image').addEventListener('change', function(event) {
-    var input = event.target;
-    var reader = new FileReader();
+    document.getElementById('profile_image').addEventListener('change', function (event) {
+        var input = event.target;
+        var reader = new FileReader();
 
-    reader.onload = function() {
-        var imagePreview = document.getElementById('imagePreview');
-        imagePreview.src = reader.result;
-        imagePreview.style.display = 'block';
-    };
+        reader.onload = function () {
+            var imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = reader.result;
+            imagePreview.style.display = 'block';
+        };
 
-    reader.readAsDataURL(input.files[0]);
-});
+        reader.readAsDataURL(input.files[0]);
+    });
 </script>
 
 </html>

@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check user role and redirect accordingly
         if ($user['role'] == 'seller') {
-            echo "<script>window.location.href = 'seller_dashboard.php';</script>";
+            echo "<script>window.location.href = 'user_profile.php';</script>";
             exit;
         } else {
             echo "<script>window.location.href = 'user_profile.php';</script>";

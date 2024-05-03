@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+include 'header.php';
 
 // Fetch available apartments from the database
 $sql = "SELECT * FROM apartment WHERE available = 1";
@@ -15,19 +16,19 @@ $result = $connect->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Apartments</title>
     <style>
-    .apartment {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
+        .apartment {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
 
-    .apartment h3 {
-        margin-top: 0;
-    }
+        .apartment h3 {
+            margin-top: 0;
+        }
 
-    .apartment p {
-        margin: 5px 0;
-    }
+        .apartment p {
+            margin: 5px 0;
+        }
     </style>
 </head>
 
@@ -41,6 +42,7 @@ $result = $connect->query($sql);
             echo "<div class='apartment'>";
             echo "<h3>" . $row["name"] . "</h3>";
             echo "<p>Address: " . $row["address"] . "</p>";
+            echo "<img src='" . $row["image"] . "' width='200'>";
             echo "<p>City: " . $row["city"] . "</p>";
             echo "<p>Price: $" . $row["price"] . "</p>";
             // Add "View" button with link to view_apartment.php

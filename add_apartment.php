@@ -24,6 +24,10 @@
             <input type="text" id="city" name="city" required>
         </div>
         <div>
+            <label for="description">description:</label>
+            <input type="text" id="description" name="description" required>
+        </div>
+        <div>
             <label for="price">Price:</label>
             <input type="text" id="price" name="price" required>
         </div>
@@ -55,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $city = $_POST["city"];
     $price = $_POST["price"];
     $available = $_POST["available"];
+    $description = $_POST["description"];
 
     // Handle image upload
     if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
@@ -72,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (move_uploaded_file($apartmentImageTmp, $targetFile)) {
 
-            $sql = "INSERT INTO apartment (userid, name, address, city, price, available, image) VALUES ('$user_id', '$name', '$address', '$city', '$price', '$available', '$targetFile')";
+            $sql = "INSERT INTO apartment (userid, name, address, city, price, available, image,description) VALUES ('$user_id', '$name', '$address', '$city', '$price', '$available', '$targetFile','$description')";
             if ($connect->query($sql) === TRUE) {
                 echo "Apartment added successfully!";
                 header("Location: user_profile.php");
@@ -85,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
 
-        $sql = "INSERT INTO apartment (userid, name, address, city, price, available) VALUES ('$user_id', '$name', '$address', '$city', '$price', '$available')";
+        $sql = "INSERT INTO apartment (userid, name, address, city, price, available,description) VALUES ('$user_id', '$name', '$address', '$city', '$price', '$available','$description')";
         if ($connect->query($sql) === TRUE) {
             echo "Apartment added successfully!";
             header("Location: user_profile.php");
