@@ -5,12 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Disease</title>
+<style type="text/css">
+    *{
+            margin: 0;
+            padding: 0;
+        }
+        .reply-container {
+            display: flex;
+            justify-content: center;
+        }
+        .reply-container {
+            width: 60%;
+            margin: 100px auto;
+            padding: 60px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
+        .reply-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Styles for labels */
+        .reply-container label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .reply-container input[type='text'],
+        .reply-container textarea {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .reply-container input[type='submit'] {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .reply-container input[type='submit']:hover {
+            background-color: #45a049;
+        }
+
+</style>
 </head>
 
 <body>
-    <div class="container">
-        <h2>Edit Disease</h2>
+    <?php
+    include 'sideBarAd.php'; ?>
+    <div class="main-content">
+        <h2 style="text-align: center; margin: 20px auto;">Reply Complaints</h2>
+    <div class="reply-container">
+        
 
         <?php
 
@@ -57,6 +112,7 @@
         mysqli_close($connect);
         ?>
     </div>
+</div>
 </body>
 
 </html>

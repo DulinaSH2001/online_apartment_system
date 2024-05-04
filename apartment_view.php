@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user manage </title>
-    <style type="text/css">
+    <title>Apartment List</title>
+    <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wght@300&display=swap');
 
         *{
@@ -94,43 +95,48 @@
 </head>
 
 <body>
+
     <?php
     include 'sideBarAd.php'; ?>
     <div class="main-content">
         <h2 style="text-align: center; margin: 20px auto;">Manage Admins</h2>
         <div class="container">
     <?php
-
+    // Include database connection
     include 'connect.php';
-    $sql = "SELECT * FROM users";
+
+    // Fetch apartment data from database
+    $sql = "SELECT * FROM apartment";
     $result = $connect->query($sql);
 
-    if ($result->num_rows > 0) {
-        // Display users in a table
-        echo "<table >";
-        echo "<tr><th>name</th><th>email</th><th>phone</th><th>nic</th></tr>";
-
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row["name"] . "</td>";
-            echo "<td>" . $row["email"] . "</td>";
-            echo "<td>" . $row["phone"] . "</td>";
-            echo "<td>" . $row["nic"] . "</td>";
-            echo "</tr>";
-        }
-
-        echo "</table>";
-    } else {
-        echo "No users found.";
+  
+if ($result->num_rows > 0) {
+    echo '<table>';
+    echo '<tr><th>Name</th><th>Address</th><th>City</th><th>Price</th><th>Status</th></tr>';
+    
+    // Output data of each apartment
+    while ($row = $result->fetch_assoc()) {
+        echo '<tr>';
+        echo '<td>' . $row["name"] . '</td>';
+        echo '<td>' . $row["address"] . '</td>';
+        echo '<td>' . $row["city"] . '</td>';
+        echo '<td>$' . number_format($row["price"], 2) . '</td>';
+        echo '<td>' . ($row["available"] ? 'Available' : 'Not Available') . '</td>';
+        echo '</tr>';
     }
+    
+    echo '</table>';
+} else {
+    echo "No apartments found.";
+}
 
-    // Close the database connection
+
+
     $connect->close();
-
     ?>
-</div>
-</div>
 
+</div>
+</div>
 </body>
 
 </html>

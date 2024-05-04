@@ -5,18 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Complaint</title>
-    <?php include 'header.php'; ?>
-    <!-- Include header.php within the head section -->
-</head>
+    <style type="text/css">
 
+        body {
+            background-image: url('');
+        }
+        /* Styles for the complaint container */
+.complaint-container {
+    width: 400px;
+    margin: 150px auto;
+}
+
+/* Styles for the form */
+.complaint-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles for input fields */
+.complaint-container input[type='email'],
+.complaint-container input[type='text'],
+.complaint-container input[type='submit'] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Styles for the submit button */
+.complaint-container input[type='submit'] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.complaint-container input[type='submit']:hover {
+    background-color: #45a049;
+}
+
+/* Styles for the inbox button */
+.complaint-container a {
+    text-decoration: none;
+}
+
+.complaint-container button {
+    padding: 8px 16px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.complaint-container button:hover {
+    background-color: #005f79;
+}
+
+    </style>
+    
+</head>
+<?php include 'header.php'; ?>
+    <!-- Include header.php within the head section -->
 <body>
-    <div class="container">
+    <div class="complaint-container">
         <form action="add_complaint.php" method="post">
             <?php
             if (isset($_SESSION['user'])) {
                 $user_id = $_SESSION['user']['id'];
                 $user_email = $_SESSION['user']['email'];
-                echo "<input type='text' name='id'  value='$user_id' readonly>";
+                echo "<input type='hidden' name='id'  value='$user_id' readonly>";
                 echo "<input type='email' name='email' placeholder='Enter your email' value='$user_email' readonly>";
             } else {
                 // If not set, show a regular email input field

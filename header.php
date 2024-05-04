@@ -22,7 +22,7 @@
     }
 
     header {
-        background-color: #333;
+        background-color: #071952;
         color: #fff;
         padding: 10px 0;
     }
@@ -46,29 +46,25 @@
         text-decoration: none;
         padding: 10px;
     }
-
-    nav ul li a:hover {
-        background-color: #555;
-    }
     </style>
 </head>
 
 <body>
     <header>
         <div class="container">
-            <h1>Your Website</h1>
+            <h1>Apartments</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="apartment.php">Home</a></li>
+                    <li><a href="review.php">Review</a></li>                    
+                    <li><a href="add_complaint.php">Contact</a></li>
                     <?php
                     session_start();
                     if (isset($_SESSION['user'])) {
                         $username = $_SESSION['user']['name'];
                         $profileImage = $_SESSION['user']['profile_image'];
-                        echo "<li><img src='profile_img/$profileImage' alt='Profile Image' style='width: 30px; height: 30px; border-radius: 50%;'> $username</li>";
+                        echo "<li><a href='user_profile.php'><img src='profile_img/$profileImage' alt='Profile Image' style='width: 40px; height: 40px; border-radius: 50%;'></a></li>";
+
                     } else {
                         echo "<li><a href='login.php'>Login</a></li>";
                     }

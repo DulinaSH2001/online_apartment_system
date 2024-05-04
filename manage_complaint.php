@@ -5,12 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Complaints</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff; /* Blue color for table header */
+            color: white;
+        }
+
+        
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        
+
+        /* Style for edit button */
+        .edit-button {
+            background-color: #28a745; /* Green color for edit button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .delete-button {
+            background-color: #C40C0C; /* Green color for edit button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .add-button {
+            background-color: #007bff; /* Blue color for submit button */
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+
+        .edit-button:hover {
+            background-color: #218838; /* Darker shade of green on hover */
+        }
+    </style>
 
 </head>
 
 <body>
-    <div class="container">
-        <h2>All Complaints</h2>
+    <?php
+    include 'sideBarAd.php'; ?>
+    <div class="main-content">
+        <h2 style="text-align: center; margin: 20px auto;">All Complaints</h2>
+        <div class="container">
         <table>
             <thead>
                 <tr>
@@ -39,13 +124,13 @@
                         if (!empty($row['reply'])) {
                             echo "<td>" . $row['reply'] . "</td>";
                         } else {
-                            echo "<td><button><a href='reply_complaint.php?id=" . $row['id'] . "'>Reply</a></button></td>";
+                            echo "<td><button class='add-button'><a style='text-decoration:none; color: white;' href='reply_complaint.php?id=" . $row['id'] . "'>Reply</a></button></td>";
                         }
                         // Add delete button in the action column
                         echo "<td>";
                         echo "<form action='manage_complaint.php' method='POST'>";
                         echo "<input type='hidden' name='complaint_id' value='" . $row['id'] . "'>";
-                        echo "<input type='submit' name='delete' value='Delete'>";
+                        echo "<input type='submit' class='delete-button' name='delete' value='Delete'>";
                         echo "</form>";
                         echo "</td>";
                         echo "</tr>";
@@ -57,6 +142,7 @@
             </tbody>
         </table>
     </div>
+</div>
 </body>
 
 </html>
@@ -72,8 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
     $query = "DELETE FROM complaint WHERE id = '$complaint_id'";
 
     if (mysqli_query($connect, $query)) {
-
-        header("Location: manage_complaint.php");
+        echo"<script>window.location.href='manage_complaint.php'</script>";
         exit();
     } else {
 

@@ -88,6 +88,20 @@
                 </a>
                 <span class="tooltip">Users</span>
             </li>
+            <li>
+                <a href="manage_review.php">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="nav-item">Review</span>
+                </a>
+                <span class="tooltip">Review</span>
+            </li>
+            <li>
+                <a href="manage_complaint.php">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="nav-item">Complain</span>
+                </a>
+                <span class="tooltip">Complain</span>
+            </li>
         </ul>
 
     </div>

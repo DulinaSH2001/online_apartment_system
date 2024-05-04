@@ -32,12 +32,117 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <style type="text/css">
+        /* CSS for User Profile Form */
+
+    .main-container {
+        display: flex;
+        justify-content: center;
+
+        flex-direction: column;
+    }
+.form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.update-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.update-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #C40C0C;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    background-color: #E72929;
+}
+
+#imagePreview {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.main-section {
+    display: flex;
+    justify-content: center;
+}
+.section1 {
+    width:50%;
+    margin: 20px;
+}
+
+.form-button {
+display: flex;
+justify-content: center;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 160px;
+}
+
+
+
+    </style>
 </head>
 
 <body>
+    <div class="main-container">
+    <div class="top">
     <h1>User Profile</h1>
+    <button class="update-btn" onclick="window.location.href='add_apartment.php'">Add Apartment</button>
+    <button class="update-btn" onclick="window.location.href='seller_apartments.php'">Apartments</button>
+    </div>
 
-    <form method="POST" action="user_profile_update.php" enctype="multipart/form-data">
+    <form class="form" method="POST" action="user_profile_update.php" enctype="multipart/form-data">
+        <div class="main-section">
+            <div class="section1">
 
         <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
         <div>
@@ -64,6 +169,8 @@ if ($result->num_rows > 0) {
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" value="<?php echo $user['email']; ?>" required>
         </div>
+        </div>
+<div class="section1">
         <div>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $user['username']; ?>" required>
@@ -84,14 +191,19 @@ if ($result->num_rows > 0) {
                     style="max-width: 200px; max-height: 200px; display: none;">
             <?php endif; ?>
         </div>
-
-        <input type="submit" value="Update Profile">
+        </div>
+</div>
+        <div class="form-button">
+        <input class="update-btn" type="submit" value="Update Profile">
+    </div>
     </form>
+    <div class="form-button">
     <form method="POST" action="delete_user.php">
         <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-        <input type="submit" value="Delete Account">
+        <input class="delete-btn" type="submit" value="Delete Account">
     </form>
-
+</div>
+</div>
 </body>
 <script>
     document.getElementById('profile_image').addEventListener('change', function (event) {

@@ -6,12 +6,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inbox</title>
+    <style type="text/css">
+        /* Styles for the inbox container */
+.inbox-container {
+    width: 70%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styles for the welcome message */
+.inbox-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styles for individual complaints */
+.complaint {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.complaint p {
+    margin: 0;
+}
+
+/* Styles for the reply section */
+.complaint .reply {
+    font-style: italic;
+    color: #888;
+    background-color: rgb(231, 41, 41, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+    </style>
 
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="inbox-container">
         <?php
 
 

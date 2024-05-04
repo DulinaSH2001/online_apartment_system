@@ -119,7 +119,7 @@
     $a_count_result = $connect->query($a_count_sql);
     $ap_count = $a_count_result->fetch_assoc();
 
-     $u_count_sql = "SELECT COUNT(*) AS u_count FROM user";
+     $u_count_sql = "SELECT COUNT(*) AS u_count FROM users";
     $u_count_result = $connect->query($u_count_sql);
     $user_count = $u_count_result->fetch_assoc();
      ?>
