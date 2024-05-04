@@ -52,6 +52,7 @@
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
+            margin-bottom: 50px;
         }
     </style>
 </head>
@@ -101,5 +102,7 @@
     </div>
 
 </body>
+<?php
+include 'footer.php';?>
 
 </html>

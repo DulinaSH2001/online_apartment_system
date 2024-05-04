@@ -55,7 +55,9 @@
             <h1>Apartments</h1>
             <nav>
                 <ul>
-                    <li><a href="apartment.php">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="apartment.php">Apartments</a></li>
+                    <li><a href="about.php">About</a></li>
                     <li><a href="review.php">Review</a></li>                    
                     <li><a href="add_complaint.php">Contact</a></li>
                     <?php

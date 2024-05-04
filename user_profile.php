@@ -205,6 +205,8 @@ justify-content: center;
 </div>
 </div>
 </body>
+<?php
+include 'footer.php';?>
 <script>
     document.getElementById('profile_image').addEventListener('change', function (event) {
         var input = event.target;

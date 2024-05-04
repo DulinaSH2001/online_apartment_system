@@ -116,5 +116,7 @@ $result = $connect->query($sql);
         ?>
     </div>
 </body>
+<?php
+include 'footer.php';?>
 
 </html>

@@ -106,7 +106,7 @@ include 'header.php';?>
             echo "<p> $" . $apartment["description"] . "</p>";
             echo "<p> $" . $apartment["price"] . "</p>";
             echo "<div class='buy-back'>";
-            echo "<button class='buy-btn'>Buy</button>";
+            echo "<button class='buy-btn'>Payment</button>";
             echo "</div>";
             echo "</div>";
             echo "</div>";
@@ -120,5 +120,7 @@ include 'header.php';?>
     ?>
 
 </body>
+<?php
+include 'footer.php';?>
 
 </html>

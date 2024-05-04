@@ -138,5 +138,7 @@ if ($result->num_rows > 0) {
 </div>
 </div>
 </body>
+<?php
+include 'footer.php';?>
 
 </html>
